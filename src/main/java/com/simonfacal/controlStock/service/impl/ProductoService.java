@@ -30,12 +30,12 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
-    public Producto edit(Producto productoEditado) {
-        Optional<Producto> result=this.productoRepository.findById(productoEditado.getCodigoProducto());
+    public Producto edit(Long id,Producto productoEditado) {
+        Optional<Producto> result=this.productoRepository.findById(id);
         if(result.isPresent()){
             return this.save(productoEditado);
         }else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,String.format("El producto con el id %d no existe ",productoEditado.getCodigoProducto()));
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,String.format("El producto con el id %d no existe ",id));
         }
     }
 

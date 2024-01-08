@@ -12,7 +12,7 @@ public interface IClienteService {
 
     public List<Cliente> getAll();
 
-    public Cliente edit(Cliente cliente);
+    public Cliente edit(Long id,Cliente cliente);
 
     public void deleteById(Long id);
 }
