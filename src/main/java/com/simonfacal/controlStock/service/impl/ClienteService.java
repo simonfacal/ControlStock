@@ -5,11 +5,12 @@ import com.simonfacal.controlStock.repository.IClienteRepository;
 import com.simonfacal.controlStock.service.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class ClienteService implements IClienteService {
     @Autowired
     private IClienteRepository clienteRepository;
@@ -20,7 +21,7 @@ public class ClienteService implements IClienteService {
 
     @Override
     public Cliente getById(Long id) {
-        return this.clienteRepository.findById(id).orElse(null);
+        return this.clienteRepository.findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,String.format("El cliente con el id %d no existe ",id)));
     }
 
     @Override
