@@ -5,11 +5,12 @@ import com.simonfacal.controlStock.repository.IProductoRepository;
 import com.simonfacal.controlStock.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class ProductoService implements IProductoService {
     @Autowired
     private IProductoRepository productoRepository;
@@ -20,7 +21,7 @@ public class ProductoService implements IProductoService {
 
     @Override
     public Producto getById(Long id) {
-        return this.productoRepository.findById(id).orElse(null);
+        return this.productoRepository.findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,String.format("El producto con el id %d no existe ",id)));
     }
 
     @Override
