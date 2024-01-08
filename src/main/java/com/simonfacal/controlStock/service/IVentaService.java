@@ -7,12 +7,12 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface IVentaService {
-    public ResponseEntity<Venta> save(Venta venta);
-    public ResponseEntity<Venta> getById(Long id);
+    public Venta save(Venta venta);
+    public Venta getById(Long id);
 
-    public ResponseEntity<Venta> getAll();
+    public List<Venta> getAll();
 
-    public ResponseEntity<Venta> edit(Venta venta);
+    public Venta edit(Venta venta);
 
-    public ResponseEntity<Venta> deleteById(Long id);
+    public void deleteById(Long id);
 }

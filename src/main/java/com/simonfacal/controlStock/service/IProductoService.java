@@ -6,14 +6,14 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface IProductoService {
-    public ResponseEntity<Producto> save(Producto producto);
-    public ResponseEntity<Producto> getById(Long id);
+    public Producto save(Producto producto);
+    public Producto getById(Long id);
 
-    public ResponseEntity<List<Producto>> getAll();
+    public List<Producto> getAll();
 
-    public ResponseEntity<Producto> edit(Producto producto);
+    public Producto edit(Producto producto);
 
-    public ResponseEntity<String> deleteById(Long id);
+    public void deleteById(Long id);
 
 
 }
