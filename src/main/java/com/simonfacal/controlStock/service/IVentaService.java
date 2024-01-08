@@ -12,7 +12,7 @@ public interface IVentaService {
 
     public List<Venta> getAll();
 
-    public Venta edit(Venta venta);
+    public Venta edit(Long id,Venta venta);
 
     public void deleteById(Long id);
 }

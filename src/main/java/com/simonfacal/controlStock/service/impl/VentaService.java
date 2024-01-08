@@ -31,13 +31,13 @@ public class VentaService implements IVentaService {
     }
 
     @Override
-    public Venta edit(Venta ventaEditado) {
-        Optional<Venta> result= this.ventaRepository.findById(ventaEditado.getCodigoVenta());
+    public Venta edit(Long id,Venta ventaEditado) {
+        Optional<Venta> result= this.ventaRepository.findById(id);
         if(result.isPresent()){
             return this.save(ventaEditado);
         }
         else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,String.format("la Venta con el id %d no existe ",ventaEditado.getCodigoVenta()));
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,String.format("la Venta con el id %d no existe ",id));
         }
     }
 

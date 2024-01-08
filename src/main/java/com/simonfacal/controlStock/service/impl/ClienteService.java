@@ -30,12 +30,12 @@ public class ClienteService implements IClienteService {
     }
 
     @Override
-    public Cliente edit(Cliente clienteEditado) {
-        Optional<Cliente> result=this.clienteRepository.findById(clienteEditado.getId());
+    public Cliente edit(Long id,Cliente clienteEditado) {
+        Optional<Cliente> result=this.clienteRepository.findById(id);
         if(result.isPresent()){
             return this.save(clienteEditado);
         }else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,String.format("El producto con el id %d no existe ",clienteEditado.getId()));
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,String.format("El producto con el id %d no existe ",id));
         }
     }
 

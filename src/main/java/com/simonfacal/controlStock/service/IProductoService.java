@@ -11,7 +11,7 @@ public interface IProductoService {
 
     public List<Producto> getAll();
 
-    public Producto edit(Producto producto);
+    public Producto edit(Long id,Producto producto);
 
     public void deleteById(Long id);
 
