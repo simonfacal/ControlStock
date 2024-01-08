@@ -1,13 +1,14 @@
 package com.simonfacal.controlStock.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
-
+@Entity
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +26,8 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(String nombre, String marca, Double costo, Double cantidadDisponible) {
+    public Producto(Long codigoProducto, String nombre, String marca, Double costo, Double cantidadDisponible) {
+        this.codigoProducto = codigoProducto;
         this.nombre = nombre;
         this.marca = marca;
         this.costo = costo;
