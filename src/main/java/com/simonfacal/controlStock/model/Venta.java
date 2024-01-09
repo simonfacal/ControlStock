@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.Positive;
@@ -29,7 +30,7 @@ public class Venta {
     @Column(name="lista_productos")
     private List<Producto>listaProductos;
     @OneToOne
-    @Column(name="un_cliente")
+    @PrimaryKeyJoinColumn(name="un_cliente")
     private Cliente unCliente;
 
     public Venta(Long codigoVenta, LocalDate fechaVenta, Double total, List<Producto> listaProductos, Cliente unCliente) {
